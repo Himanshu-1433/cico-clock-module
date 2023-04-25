@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.main-sheet {
+  height: 100vh;
+  background: linear-gradient(180deg, orange, red);
+}
+
+/* this is the background box */
+.circular {
+  margin: 50px auto;
+  height: 100px;
+  width: 100px;
+  position: relative;
+  background-color: transparent;
+  border-radius: 50%;
+}
+
+.circular .inner,
+.circular .circle {
+  position: absolute;
+  top: 50px;
+  z-index: 0s;
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+  background-color: gray;
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.circular .inner { 
+  left: 50%;
+  height: 80px;
+  width: 80px;
+  margin: -40px 0 0 -40px;
+  background-color: #dde6f0;
+  z-index: 8;
+  border-radius: 100%;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.circular .circle {
+  position: relative;
+  background-color: transparent;
+  top: 0px;
+  z-index: 1;
+  box-shadow: none;
+}
+
+.circular .numb {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  font-size: 18px;
+  font-weight: 500;
+  color: red;
+}
+
+.circular .bar {
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  background: rgba(128, 128, 128, 0.575);
+  -webkit-border-radius: 100%;
+  clip: rect(0px, 100px, 100px, 50px);
+}
+
+.circle .bar .progress {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -webkit-border-radius: 100%;
+  background-color: red;
+  clip: rect(0px, 50px, 100px, 0px);
+}
+
+.dot span {
+  background: rgb(255, 255, 255);
+}
+
+.circle .left .progress {
+  z-index: 1;
+  transform: rotate(0deg);
+  animation: left 4s linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes left {
+  100% {
+    transform: rotate(180deg);
+  }
+}
+.circle .right {
+  z-index: 3;
+  transform: rotate(180deg);
+}
+
+.circle .right .progress {
+  animation: right 4s linear both;
+  animation-delay: 4s;
+}
+
+@keyframes right {
+  100%{
+    transform: rotate(180deg);
+  }
+}
+.circle .dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 50%;
+  height: 10px;
+  background-color: transparent;
+  margin-top: -5px;
+  transform: rotate(-90deg);
+  transform-origin: 0% 50%;
+}
+
+.circle .dot:nth-child(2) {
+  animation: dot 8s linear both;
+  transform: rotate(0deg);
+}
+
+
+.circle .dot span {
+  position: absolute;
+  z-index: 12;
+  right: -20px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(90deg);
+  border-radius: 100%;
+}
+
+@keyframes dot {
+  0% {
+    transform: rotate(-90deg);
+  }
+
+  50% {
+    transform: rotate(90deg);
+    z-index: 4;
+  }
+
+  100% {
+    transform: rotate(270deg);
+    z-index: 4;
+  }
+}
